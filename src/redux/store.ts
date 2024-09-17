@@ -1,9 +1,9 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
+import storage from 'redux-persist/lib/storage';
 
 import {
+  persistReducer,
   persistStore,
   FLUSH,
   REHYDRATE,
@@ -11,15 +11,15 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
+} from 'redux-persist';
 
-import persisteAuthReducer from "./auth/authSlice";
-import mainApi from "./mainApi";
+import persisteAuthReducer from './auth/authSlice';
+import mainApi from './mainApi';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-  whitelist: ["auth", "accessToken", "user"],
+  whitelist: ['auth', 'accessToken', 'user'],
 };
 
 const rootReducer = combineReducers({
@@ -45,6 +45,6 @@ export default store;
 
 export type AppStore = typeof store;
 
-export type RootState = ReturnType<AppStore["getState"]>;
+export type RootState = ReturnType<AppStore['getState']>;
 
-export type AppDispatch = AppStore["dispatch"];
+export type AppDispatch = AppStore['dispatch'];
