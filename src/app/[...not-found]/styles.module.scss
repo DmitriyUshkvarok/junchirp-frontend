@@ -1,0 +1,154 @@
+@import "../../sass/utils/container";
+@import "../../sass/utils/mixins";
+
+.content__block {
+  width: 319px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include mediaQuery(767px) {
+    width: 344px;
+  }
+
+  @include mediaQuery(1280px) {
+    width: 392px;
+  }
+
+  @include mediaQuery(1536px) {
+    width: 457px;
+  }
+
+  @include mediaQuery(1800px) {
+    width: 584px;
+  }
+}
+
+.img__404 {
+  margin-bottom: 14px;
+
+  @include mediaQuery(767px) {
+    width: 344px;
+    height: 298px;
+    margin-bottom: 16px;
+  }
+
+  @include mediaQuery(1280px) {
+    width: 390px;
+    height: 338px;
+    margin-bottom: 18px;
+  }
+
+  @include mediaQuery(1536px) {
+    width: 456px;
+    height: 395px;
+    margin-bottom: 18px;
+  }
+
+  @include mediaQuery(1800px) {
+    width: 581px;
+    height: 503px;
+  }
+}
+
+.title {
+  color: #228b22;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  @include mediaQuery(767px) {
+    font-size: 18px;
+  }
+
+  @include mediaQuery(1280px) {
+    font-size: 20px;
+  }
+
+  @include mediaQuery(1536px) {
+    font-size: 24px;
+  }
+
+  @include mediaQuery(1800px) {
+    font-size: 32px;
+  }
+}
+
+.details {
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 12px;
+  margin-bottom: 12px;
+
+  @include mediaQuery(1280px) {
+    font-size: 18px;
+  }
+
+  @include mediaQuery(1536px) {
+    font-size: 20px;
+  }
+
+  @include mediaQuery(1800px) {
+    font-size: 22px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.button {
+  width: 319px;
+  height: 40px;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 40px;
+  border: 0.2px solid #228b22;
+  background: #228b22;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  @include mediaQuery(767px) {
+    width: 344px;
+    height: 44px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  @include mediaQuery(1280px) {
+    width: 392px;
+    height: 48px;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  @include mediaQuery(1536px) {
+    width: 456px;
+    height: 53px;
+  }
+
+  @include mediaQuery(1800px) {
+    width: 584px;
+    font-size: 20px;
+    height: 62px;
+  }
+}

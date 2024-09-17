@@ -1,0 +1,93 @@
+:root {
+  --font-mono: "Roboto" ui-monospace, Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  --background-color: #141416;
+  --color: #fafafa;
+  --black: #000;
+  --bg-gray: #616161;
+
+  --border-radius: 40px;
+  --border-color: #228b22;
+  --border: 1px solid #fafafa;
+  --border-btn: 2px solid #228b22;
+
+  --text-color: #fafafa;
+  --input-text-color-hover: #228b22;
+
+  --text-color-valid: #228b22;
+  --text-color-dark: #141416;
+
+  --btn-background: #228b22;
+  --btn-bg-confirm: #d4b000;
+  --btn-text-color-hover: #141416;
+  --hover-background: #228b22;
+  --hover-text-color: #228b22;
+  --hover-bg-color: #57e957;
+
+  --invalid: #b3261e;
+
+  --screen-size-l: 1536px;
+  --screen-size-m: 1280px;
+  --screen-size-s: 768px;
+  --screen-size-xs: 375px;
+  --transition-time: 0.3s;
+
+  --border-role-card: 1px solid #ffffff;
+  --swiper-pagination-color: #228b22;
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+
+  --swiper-pagination-bullet-width: 12px;
+  --swiper-pagination-bullet-height: 12px;
+  --swiper-pagination-bottom: -3px;
+}
+
+@font-face {
+  font-family: "Angry";
+  src: url(../../public/fonts/Angry.otf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.body-no-scroll {
+  overflow: hidden;
+}

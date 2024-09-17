@@ -1,0 +1,50 @@
+@import "../../sass/utils/container";
+@import "../../sass/utils/mixins";
+@import "../../components/auth/SignIn/signIn.module.scss";
+
+.text {
+  padding-top: 30px;
+
+  @include font(14px, 2vw, 18px, 400, 20px);
+  margin: 0 auto;
+
+  max-width: 400px;
+
+  @include mediaQuery(1280px) {
+    max-width: 530px;
+  }
+
+  @include mediaQuery(1920px) {
+    max-width: 584px;
+  }
+}
+
+.title {
+  text-align: center;
+
+  @include font(20px, 2vw, 26px, 500, 25px);
+}
+
+.box__btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.resetBtn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: #616161;
+  text-decoration-thickness: 1px;
+  color: #616161;
+  @include font(14px, 2vw, 16px, 400, 19px);
+  transition: all 0.3s;
+  &:hover {
+    color: var(--hover-text-color);
+    text-decoration-color: var(--hover-text-color);
+  }
+}

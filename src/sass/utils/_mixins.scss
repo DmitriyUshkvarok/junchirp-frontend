@@ -1,0 +1,72 @@
+@import "./variables";
+
+// mixin media query
+@mixin mediaQuery($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+@mixin mediaMaxQuery($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// mixin centr
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexSpaceBetween() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin font(
+  $fsMin: 14px,
+  $fsPreferred: 2vw,
+  $fsMax: 24px,
+  $fw: 400,
+  $lh: 14px
+) {
+  font-size: clamp($fsMin, $fsPreferred, $fsMax);
+  font-weight: $fw;
+  line-height: $lh;
+}
+
+@mixin fontSize($fs: 14px, $fw: 400px, $lh: 14px) {
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh / $fs;
+}
+
+@mixin hover($property, $value) {
+  transition: #{$property} $transition-time ease;
+  &:hover {
+    #{$property}: $value;
+  }
+}
+
+@mixin mediaBetweenQuery($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+:export {
+  flexCenter: #{mixinStr(flexCenter)};
+  font: #{mixinStr(font)};
+  mediaQuery: #{mixinStr(mediaQuery)};
+
+  mediaMaxQuery: #{mixinStr(mediaMaxQuery)};
+  hover: #{mixinStr(hover)};
+  mediaBetweenQuery: #{mixinStr(mediaBetweenQuery)};
+}
