@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import s from "./hero.module.scss";
-import { roboto } from "@/utils/fonts";
-import Link from "next/link";
-import { AppRouteEnum } from "@/libs/enums/enums";
+import s from './hero.module.scss';
+import { roboto } from '@/utils/fonts';
+import Link from 'next/link';
+import { AppRouteEnum } from '@/libs/enums/enums';
 
 const Hero = () => {
   return (

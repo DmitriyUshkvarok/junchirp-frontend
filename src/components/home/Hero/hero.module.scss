@@ -1,5 +1,5 @@
-@import "../../../sass/utils/container";
-@import "../../../sass/utils/mixins";
+@import '../../../sass/utils/container';
+@import '../../../sass/utils/mixins';
 
 .hero {
   padding-bottom: 40px;
@@ -17,7 +17,7 @@
   font-size: 47px;
   line-height: 1.2;
   text-transform: uppercase;
-  font-family: "Angry", sans-serif;
+  font-family: 'Angry', sans-serif;
   font-weight: 400;
 
   @include mediaQuery($screen-size-m) {
@@ -91,7 +91,7 @@
 
 .hero_image {
   display: block;
-  background-image: url("/hero-mobile.png");
+  background-image: url('/hero-mobile.png');
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -99,22 +99,22 @@
   aspect-ratio: 343 / 242;
 
   @include mediaQuery($screen-size-s) {
-    background-image: url("/hero-768.png");
+    background-image: url('/hero-768.png');
     height: 347px;
   }
 
   @include mediaQuery($screen-size-m) {
-    background-image: url("/hero-1280.png");
+    background-image: url('/hero-1280.png');
     height: 401px;
   }
 
   @include mediaQuery($screen-size-l) {
-    background-image: url("/hero-1536.png");
+    background-image: url('/hero-1536.png');
     height: 486px;
   }
 
   @include mediaQuery($screen-size-xl) {
-    background-image: url("/hero-1920.png");
+    background-image: url('/hero-1920.png');
     height: 626px;
   }
 }
@@ -122,7 +122,7 @@
 .hero_button {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   position: relative;
   width: 343px;
   background-color: var(--border-color);
@@ -168,7 +168,7 @@
   }
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     width: 16px;
     height: 16px;
