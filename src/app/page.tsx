@@ -11,7 +11,7 @@ export default function Home() {
   if (1 + 1) {
   }
   const qwe = 23;
-
+  // if(12){return null}
   function foo() {}
   return (
     <>
