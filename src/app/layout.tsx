@@ -1,32 +1,35 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import "./globals.css";
-import Header from "@/components/Header/Header";
-import { montserrat } from "@/utils/fonts";
-import ReduxProvider from "@/redux/ReduxProvider/ReduxProvider";
-import Footer from "@/components/Footer/Footer";
-import { Temporary } from "@/components/temporary/temporary";
+import './globals.css';
+import Header from '@/components/Header/Header';
+import { montserrat } from '@/utils/fonts';
+import ReduxProvider from '@/redux/ReduxProvider/ReduxProvider';
+import Footer from '@/components/Footer/Footer';
+import { Temporary } from '@/components/temporary/temporary';
 import s from '@/sass/layouts/main.module.scss';
-import localFont from "next/font/local";
+import localFont from 'next/font/local';
 
 const angryFont = localFont({
-  src:'../../public/fonts/Angry.otf'
-})
-
-
+  src: '../../public/fonts/Angry.otf',
+});
 
 export const metadata: Metadata = {
-  title: "JunChirp",
-  description: "JunChirp",
+  title: 'JunChirp',
+  description: 'JunChirp',
   openGraph: {
-    images: ["/logo.png"],
-    type: "website",
+    images: ['/logo.png'],
+    type: 'website',
   },
   icons: {
     icon: '/logo.png',
   },
 };
 
+const config = {};
+if (1 + 1) {
+}
+
+const qwe = 34;
 export default function RootLayout({
   children,
 }: Readonly<{
