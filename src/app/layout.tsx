@@ -24,14 +24,6 @@ export const metadata: Metadata = {
     icon: '/logo.png',
   },
 };
-
-const config = {};
-if (1 + 1) {
-}
-
-const qwe = 34;
-
-const foo = ()=>{}
 export default function RootLayout({
   children,
 }: Readonly<{

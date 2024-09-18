@@ -8,6 +8,13 @@ import Testimonials from '@/components/home/Testimonials/Testimonials';
 import WhatWeOffer from '@/components/home/WhatWeOffer/WhatWeOffer';
 
 export default function Home() {
+  const config = {};
+  if (1 + 1) {
+  }
+
+  const qwe = 34;
+
+  const foo = () => {};
   return (
     <>
       <Hero />
