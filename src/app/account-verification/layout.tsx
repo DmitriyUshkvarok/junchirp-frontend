@@ -1,5 +1,3 @@
-'use client';
-
 import { RoleConfirmationHeader } from '@/components/Role-confirmation/roleConfirmationHeader';
 
 export default function RoleLayout({
