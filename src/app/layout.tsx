@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-
-import './globals.css';
+import './globals.scss';
 import Header from '@/components/Header/Header';
 import { montserrat } from '@/utils/fonts';
 import ReduxProvider from '@/Providers/ReduxProvider/ReduxProvider';
@@ -17,8 +16,12 @@ export const metadata: Metadata = {
   title: 'JunChirp',
   description: 'JunChirp',
   openGraph: {
-    images: ['/logo.png'],
+    images: [{ url: '/logo.png' }],
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image', // Или другой тип карточки
+    images: ['/logo.png'],
   },
   icons: {
     icon: '/logo.png',

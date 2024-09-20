@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-
 import { usePathname } from 'next/navigation';
 import SignInFormik from './SignInFormik';
 import SocialLoginGroup from '../../UI/SocialLoginGroup/SocialLoginGroup';

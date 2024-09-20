@@ -1,6 +1,4 @@
 "use client";
-
-import s from "./logo.module.scss";
 import { useEffect, useState } from "react";
 import SvgIcon from "../SvgIcon/SvgIcon";
 
@@ -50,7 +48,6 @@ const Logo = () => {
       id="LOGO"
       width={dynamicWidth}
       height={dynamicHeight}
-      className={s.logo}
     />
   );
 };

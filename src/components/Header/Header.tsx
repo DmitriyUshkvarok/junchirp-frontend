@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import authSelector from '@/redux/auth/authSelector';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLogoutMutation } from '@/redux/auth/authApi';
-import Logo from '../Logo/Logo';
+import Logo from '../UI/Logo/Logo';
 import BurgerButton from '../UI/BurgerButton/BurgerButton';
 import SvgIcon from '../UI/SvgIcon/SvgIcon';
 import useRouterPush from '@/hooks/useRouter';

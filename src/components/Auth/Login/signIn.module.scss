@@ -1,5 +1,5 @@
-@import "../../../sass/utils/container";
-@import "../../../sass/utils/mixins";
+@import '../../../sass/utils/container';
+@import '../../../sass/utils/mixins';
 
 .section {
   padding: 40px 0;
@@ -81,7 +81,9 @@
 
   &:-webkit-autofill,
   &:-webkit-autofill:focus {
-    transition: background-color 600000s 0s, color 600000s 0s;
+    transition:
+      background-color 600000s 0s,
+      color 600000s 0s;
   }
   &[data-autocompleted] {
     background-color: transparent !important;
