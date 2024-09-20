@@ -1,4 +1,4 @@
-import { RoleConfirmation } from '@/components/Role-confirmation/roleConfirmation';
+import { RoleConfirmation } from '@/components/RoleConfirmation/roleConfirmation';
 
 const RoleConfirmationPage = () => {
   return (

@@ -1,4 +1,4 @@
-import { AccountVerificationHeader } from "@/components/Role-confirmation/AccountVerificationHeader";
+import { AccountVerificationHeader } from '@/components/RoleConfirmation/AccountVerificationHeader';
 export default function RoleLayout({
   children,
 }: Readonly<{
