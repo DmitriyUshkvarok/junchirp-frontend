@@ -8,7 +8,7 @@ import { roles } from "@/libs/enums/app/Role";
 
 export const RoleConfirmationHeader = () => {
   const pathname = usePathname();
-
+// 
   const isFirstStep = pathname === AppRouteEnum.ROLE_CONFIRMATION;
   const isSecondStep = roles.some(
     (role) => pathname === `${AppRouteEnum.ACCOUNT_VERIFICATION}/${role}`
