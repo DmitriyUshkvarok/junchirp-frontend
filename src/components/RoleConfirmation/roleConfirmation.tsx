@@ -11,7 +11,7 @@ import { useSetRoleMutation } from '@/services/auth-and-user-services';
 import { customError } from '@/utils/types/customError';
 import { useState } from 'react';
 import cn from 'classnames';
-
+// 
 export const RoleConfirmation = () => {
   const [setRole, { isLoading }] = useSetRoleMutation();
   const router = useRouter();
