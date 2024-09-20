@@ -1,7 +1,6 @@
 @import '../../sass/utils/container';
 @import '../../sass/utils/mixins';
-
-@import '../components/Auth/Login/signIn.module.scss';
+@import '../../components/Auth/Login/signIn.module.scss';
 
 .title {
   text-align: center;
