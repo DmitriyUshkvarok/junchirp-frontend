@@ -1,3 +1,4 @@
+'use client'
 import { usePathname } from "next/navigation";
 import s from "./roleConfirmation.module.scss";
 import { AppRouteEnum } from "@/libs/enums/enums";
