@@ -1,4 +1,4 @@
-import { RoleConfirmationHeader } from '@/components/Role-confirmation/roleConfirmationHeader';
+import { RoleConfirmationHeader } from '../../components/Role-confirmation/roleConfirmationHeader';
 
 export default function RoleLayout({
   children,
