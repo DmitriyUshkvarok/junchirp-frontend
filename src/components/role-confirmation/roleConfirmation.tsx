@@ -1,15 +1,15 @@
-import s from "./roleConfirmation.module.scss";
-import { RoleList } from "./roleList";
-import { roleCardData } from "./roleCardText";
-import Button from "../Button/Button";
-import { Form, Formik } from "formik";
-import { rolesValidationSchema } from "./rolesValidationSchema";
-import { useRouter } from "next/navigation";
-import { AppRouteEnum } from "@/libs/enums/enums";
-import { useSetRoleMutation } from "@/redux/auth/authApi";
-import { customError } from "@/utils/types/customError";
-import { useState } from "react";
-import cn from "classnames";
+import s from './roleConfirmation.module.scss';
+import { RoleList } from './roleList';
+import { roleCardData } from './roleCardText';
+import Button from '../UI/Button/Button';
+import { Form, Formik } from 'formik';
+import { rolesValidationSchema } from '../../validation/rolesValidation';
+import { useRouter } from 'next/navigation';
+import { AppRouteEnum } from '@/libs/enums/enums';
+import { useSetRoleMutation } from '@/redux/auth/authApi';
+import { customError } from '@/utils/types/customError';
+import { useState } from 'react';
+import cn from 'classnames';
 
 export const RoleConfirmation = () => {
   const [setRole, { isLoading }] = useSetRoleMutation();
@@ -24,11 +24,11 @@ export const RoleConfirmation = () => {
     } catch (e) {
       const customError = e as customError;
       if (customError.status === 404) {
-        setBackendError("Користувача не знайдено");
+        setBackendError('Користувача не знайдено');
       } else if (customError.status === 401) {
-        setBackendError("Користувач не авторизований");
+        setBackendError('Користувач не авторизований');
       } else if (customError.status === 403) {
-        setBackendError("Користувач не має достатньо прав");
+        setBackendError('Користувач не має достатньо прав');
       }
     }
   };
@@ -37,7 +37,7 @@ export const RoleConfirmation = () => {
     <section className={s.section}>
       <div className={s.container}>
         <Formik
-          initialValues={{ role: "" }}
+          initialValues={{ role: '' }}
           validationSchema={rolesValidationSchema}
           onSubmit={handleSubmit}
         >
@@ -46,8 +46,8 @@ export const RoleConfirmation = () => {
               <RoleList
                 roles={roleCardData}
                 onSelectRole={(roleId) => {
-                  setFieldValue("role", roleId);
-                  console.log("Selected role:", roleId);
+                  setFieldValue('role', roleId);
+                  console.log('Selected role:', roleId);
                 }}
               />
               <div className={s.button__wrapper}>

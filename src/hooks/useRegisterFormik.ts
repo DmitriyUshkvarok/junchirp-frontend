@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import { useRegisterMutation } from "@/redux/auth/authApi";
-import useRouterPush from "@/hooks/useRouter";
-import { FormValuesRegister } from "@/components/auth/Register/FormValuesRegister";
-import { customError } from "@/utils/types/customError";
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { useRegisterMutation } from '@/redux/auth/authApi';
+import useRouterPush from '@/hooks/useRouter';
+import { FormValuesRegister } from '@/components/Auth/Register/FormValuesRegister';
+import { customError } from '@/utils/types/customError';
 
 const useRegisterFormik = () => {
   const [register, { isLoading, isSuccess }] = useRegisterMutation();
@@ -18,8 +18,8 @@ const useRegisterFormik = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success("Реєстрація успішна!", {
-        position: "top-right",
+      toast.success('Реєстрація успішна!', {
+        position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -27,7 +27,7 @@ const useRegisterFormik = () => {
         draggable: true,
         progress: undefined,
       });
-      pushRouter("/confirm");
+      pushRouter('/confirm');
     }
   }, [isSuccess, pushRouter]);
 
@@ -38,7 +38,7 @@ const useRegisterFormik = () => {
     try {
       const { userName, email, password } = values;
 
-      sessionStorage.setItem("registrationFormData", JSON.stringify({ email }));
+      sessionStorage.setItem('registrationFormData', JSON.stringify({ email }));
 
       await register({
         user: { userName, email, password },
@@ -50,13 +50,13 @@ const useRegisterFormik = () => {
       const customError = error as customError;
 
       const status = customError?.status;
-      let errorMessage = "Електронна адреса вже існує.";
+      let errorMessage = 'Електронна адреса вже існує.';
 
       if (status === 400) {
         errorMessage =
-          "Електронна адреса вже існує, але не підтверджена. Надіслано новий код підтвердження.";
-        console.log("Status 400 detected, redirecting to /confirm");
-        pushRouter("/confirm");
+          'Електронна адреса вже існує, але не підтверджена. Надіслано новий код підтвердження.';
+        console.log('Status 400 detected, redirecting to /confirm');
+        pushRouter('/confirm');
       }
 
       setBackendError(errorMessage);

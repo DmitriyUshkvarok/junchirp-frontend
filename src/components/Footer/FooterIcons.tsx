@@ -1,7 +1,7 @@
-"use client";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import SvgIcon from "../SvgIcon/SvgIcon";
+'use client';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import SvgIcon from '../UI/SvgIcon/SvgIcon';
 
 interface Props {
   children?: React.ReactNode;
@@ -39,10 +39,10 @@ const FooterIcons: React.FC<Props> = ({ children }) => {
 
     handleResize();
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { RoleConfirmationHeader } from "@/components/role-confirmation/roleConfirmationHeader";
+import { RoleConfirmationHeader } from '@/components/Role-confirmation/roleConfirmationHeader';
 
 export default function RoleLayout({
   children,

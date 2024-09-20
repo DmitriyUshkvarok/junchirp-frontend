@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useLoginMutation } from "@/redux/auth/authApi";
-import useRouterPush from "@/hooks/useRouter";
-import { customError } from "@/utils/types/customError";
-import { FormValuesSignIn } from "@/components/auth/SignIn/FormValuesSignIn";
+import { useState } from 'react';
+import { useLoginMutation } from '@/redux/auth/authApi';
+import useRouterPush from '@/hooks/useRouter';
+import { customError } from '@/utils/types/customError';
+import { FormValuesSignIn } from '@/components/Auth/SignIn/FormValuesSignIn';
 
 const useSignInFormik = () => {
   const [login, { isLoading }] = useLoginMutation();
@@ -22,23 +22,23 @@ const useSignInFormik = () => {
       if (res) {
         resetForm();
 
-        pushRouter("/");
+        pushRouter('/');
       }
     } catch (error) {
       const status = (error as customError)?.status;
-      let errorMessage = "Неправильна електронна пошта або пароль";
+      let errorMessage = 'Неправильна електронна пошта або пароль';
 
       if (status === 401) {
         sessionStorage.setItem(
-          "loginFormData",
+          'loginFormData',
           JSON.stringify({ email: values.email })
         );
 
         errorMessage =
-          "Для завершення реєстрації підтвердіть свою електронну пошту";
-        pushRouter("/confirm");
+          'Для завершення реєстрації підтвердіть свою електронну пошту';
+        pushRouter('/confirm');
       } else if (status === 422) {
-        errorMessage = "Неправильна електронна пошта або пароль";
+        errorMessage = 'Неправильна електронна пошта або пароль';
       }
 
       setBackendError(errorMessage);

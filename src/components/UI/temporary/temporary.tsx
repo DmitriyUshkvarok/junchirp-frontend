@@ -1,7 +1,5 @@
 import { AppRouteEnum } from "@/libs/enums/enums";
 import Link from "next/link";
-import React from "react";
-
 import styles from './styles.module.css';
 
 export const Temporary = () => {

@@ -1,14 +1,14 @@
-import { Form, Formik } from "formik";
+import { Form, Formik } from 'formik';
 
-import useSignInFormik from "@/hooks/useSignInFormik";
+import useSignInFormik from '@/hooks/useSignInFormik';
 
-import { validationSchemaSignIn } from "./validationSchemaSignIn";
+import { validationSchemaSignIn } from '../../../validation/validationSignIn';
 
-import s from "./signIn.module.scss";
-import ToastContainer from "@/components/ToastContainer/ToastContainer";
-import Button from "@/components/Button/Button";
-import Loader from "@/components/Loader/Loader";
-import { FormField } from "@/components/common/form-field/form-field";
+import s from './signIn.module.scss';
+import ToastContainer from '@/components/UI/ToastContainer/ToastContainer';
+import Button from '@/components/UI/Button/Button';
+import Loader from '@/components/UI/Loader/Loader';
+import { FormField } from '@/components/UI/CustomInput/CustomInput';
 
 const SignInFormik = () => {
   const {
@@ -24,7 +24,7 @@ const SignInFormik = () => {
     <>
       <ToastContainer />
       <Formik
-        initialValues={{ email: "", password: "", rememberMe: false }}
+        initialValues={{ email: '', password: '', rememberMe: false }}
         onSubmit={handleSubmit}
         validationSchema={validationSchemaSignIn}
       >
@@ -37,9 +37,9 @@ const SignInFormik = () => {
         }) => (
           <Form className={s.form}>
             <FormField
-              name={"email"}
-              label={"Email"}
-              type={"email"}
+              name={'email'}
+              label={'Email'}
+              type={'email'}
               touched={touched}
               errors={errors}
               backendError={backendError}
@@ -49,9 +49,9 @@ const SignInFormik = () => {
               }}
             />
             <FormField
-              name={"password"}
-              label={"Пароль"}
-              type={"password"}
+              name={'password'}
+              label={'Пароль'}
+              type={'password'}
               touched={touched}
               errors={errors}
               backendError={backendError}
@@ -73,17 +73,17 @@ const SignInFormik = () => {
                 isLoading || isValid
                   ? s.valid
                   : !touched.email ||
-                    errors.email ||
-                    !touched.password ||
-                    errors.password
-                  ? ""
-                  : !touched.email ||
-                    errors.email ||
-                    !touched.password ||
-                    errors.password ||
-                    backendError
-                  ? s.invalid
-                  : s.valid
+                      errors.email ||
+                      !touched.password ||
+                      errors.password
+                    ? ''
+                    : !touched.email ||
+                        errors.email ||
+                        !touched.password ||
+                        errors.password ||
+                        backendError
+                      ? s.invalid
+                      : s.valid
               }
                 `}
               type="submit"
@@ -95,7 +95,7 @@ const SignInFormik = () => {
                   <Loader />
                 </>
               ) : (
-                "Увійти"
+                'Увійти'
               )}
             </Button>
           </Form>

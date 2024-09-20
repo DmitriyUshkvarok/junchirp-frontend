@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import s from "./styles.module.scss";
-import { Field, Form, Formik } from "formik";
+import s from './styles.module.scss';
+import { Field, Form, Formik } from 'formik';
 
-import { useState } from "react";
-import { useResetPasswordMutation } from "@/redux/auth/authApi";
-import { toast } from "react-toastify";
-import useRouterPush from "@/hooks/useRouter";
-import { FormValuesResetPassword } from "@/components/auth/ResetPassword/FormValuesResetPassword";
-import ToastContainer from "@/components/ToastContainer/ToastContainer";
-import { validationSchemaResetPassword } from "@/components/auth/ResetPassword/validationSchemaResetPassword";
-import SvgIcon from "@/components/SvgIcon/SvgIcon";
-import ErrorFeedback from "@/components/auth/ErrorFeedback";
-import Button from "@/components/Button/Button";
-import Loader from "@/components/Loader/Loader";
+import { useState } from 'react';
+import { useResetPasswordMutation } from '@/redux/auth/authApi';
+import { toast } from 'react-toastify';
+import useRouterPush from '@/hooks/useRouter';
+import { FormValuesResetPassword } from '@/components/Auth/ResetPassword/FormValuesResetPassword';
+import ToastContainer from '@/components/UI/ToastContainer/ToastContainer';
+import { validationSchemaResetPassword } from '@/validation/validationResetPassword';
+import SvgIcon from '@/components/UI/SvgIcon/SvgIcon';
+import ErrorFeedback from '@/components/Auth/ErrorFeedback';
+import Button from '@/components/UI/Button/Button';
+import Loader from '@/components/UI/Loader/Loader';
 
 const ResetPasswordPage = () => {
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
@@ -35,20 +35,20 @@ const ResetPasswordPage = () => {
   ) => {
     try {
       const { email, code, newPassword } = values;
-      console.log("dsdsd");
+      console.log('dsdsd');
 
       const res = await resetPassword({ email, code, newPassword }).unwrap();
       if (res) {
         toast.success(
-          "Ваш пароль успішно змінено. Ви будете перенаправлені на сторінку входу."
+          'Ваш пароль успішно змінено. Ви будете перенаправлені на сторінку входу.'
         );
         resetForm();
-        pushRouter("/sign_in");
+        pushRouter('/sign_in');
       }
     } catch (error) {
-      toast.error("Неправильний email або code");
+      toast.error('Неправильний email або code');
 
-      let errorMessage = "Неправильний email або code";
+      let errorMessage = 'Неправильний email або code';
 
       setBackendError(errorMessage);
     }
@@ -65,7 +65,7 @@ const ResetPasswordPage = () => {
           папку зі спамом.
         </p>
         <Formik
-          initialValues={{ email: "", code: "", newPassword: "" }}
+          initialValues={{ email: '', code: '', newPassword: '' }}
           onSubmit={handleSubmit}
           validationSchema={validationSchemaResetPassword}
         >
@@ -80,7 +80,7 @@ const ResetPasswordPage = () => {
               <div className={s.form__box}>
                 <label
                   className={`${s.label} ${
-                    touched.email && errors.email ? s.invalid : ""
+                    touched.email && errors.email ? s.invalid : ''
                   } `}
                 >
                   Email
@@ -96,8 +96,8 @@ const ResetPasswordPage = () => {
                       ? //
                         s.invalid
                       : touched.email && !errors.email
-                      ? s.valid
-                      : ""
+                        ? s.valid
+                        : ''
                   }`}
                   type="email"
                   name="email"
@@ -111,7 +111,7 @@ const ResetPasswordPage = () => {
               <div className={s.form__box}>
                 <label
                   className={`${s.label} ${
-                    touched.code && errors.code ? s.invalid : ""
+                    touched.code && errors.code ? s.invalid : ''
                   } `}
                 >
                   Код
@@ -127,8 +127,8 @@ const ResetPasswordPage = () => {
                       ? // || backendError
                         s.invalid
                       : touched.code && !errors.code
-                      ? s.valid
-                      : ""
+                        ? s.valid
+                        : ''
                   }`}
                   type="text"
                   name="code"
@@ -142,7 +142,7 @@ const ResetPasswordPage = () => {
               <div className={`${s.form__box} ${s.nth__child}`}>
                 <label
                   className={`${s.label}  ${
-                    touched.newPassword && errors.newPassword ? s.invalid : ""
+                    touched.newPassword && errors.newPassword ? s.invalid : ''
                   }`}
                 >
                   Пароль
@@ -158,10 +158,10 @@ const ResetPasswordPage = () => {
                     touched.newPassword && errors.newPassword
                       ? s.invalid
                       : touched.newPassword && !errors.newPassword
-                      ? s.valid
-                      : ""
+                        ? s.valid
+                        : ''
                   }`}
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   name="newPassword"
                   error={touched.newPassword && errors.newPassword}
                 />
@@ -171,7 +171,7 @@ const ResetPasswordPage = () => {
                 )}
 
                 <SvgIcon
-                  id={showPassword ? "eye-close" : "eye"}
+                  id={showPassword ? 'eye-close' : 'eye'}
                   width={40}
                   height={40}
                   className={s.chip__eye}
@@ -194,10 +194,10 @@ const ResetPasswordPage = () => {
                    isLoading
                      ? s.styledBtn
                      : !touched.email || errors.email
-                     ? ""
-                     : !touched.email || errors.email || backendError
-                     ? s.invalid
-                     : s.valid
+                       ? ''
+                       : !touched.email || errors.email || backendError
+                         ? s.invalid
+                         : s.valid
                  } `}
                   type="submit"
                   isDisabled={!dirty || !isValid || isLoading}
@@ -207,7 +207,7 @@ const ResetPasswordPage = () => {
                       Змінити пароль <Loader />
                     </>
                   ) : (
-                    "Змінити пароль"
+                    'Змінити пароль'
                   )}
                 </Button>
               </div>

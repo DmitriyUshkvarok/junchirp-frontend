@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import { usePathname } from "next/navigation";
-import SignInFormik from "./SignInFormik";
-import SocialLoginGroup from "../../SocialLoginGroup/SocialLoginGroup";
-import s from "./signIn.module.scss";
-import { AppRouteEnum } from "@/libs/enums/enums";
+import { usePathname } from 'next/navigation';
+import SignInFormik from './SignInFormik';
+import SocialLoginGroup from '../../UI/SocialLoginGroup/SocialLoginGroup';
+import s from './signIn.module.scss';
+import { AppRouteEnum } from '@/libs/enums/enums';
 
 const SignIn = () => {
   const pathname = usePathname();
@@ -18,7 +18,7 @@ const SignIn = () => {
           <Link
             href={AppRouteEnum.SIGN_IN}
             className={` ${s.link} ${
-              pathname === `${AppRouteEnum.SIGN_IN}` ? s.link__sign_in : ""
+              pathname === `${AppRouteEnum.SIGN_IN}` ? s.link__sign_in : ''
             } `}
           >
             Увійти
@@ -27,7 +27,7 @@ const SignIn = () => {
           <Link
             href={AppRouteEnum.SIGN_UP}
             className={` ${s.link} ${
-              pathname === `${AppRouteEnum.SIGN_UP}` ? s.link__register : ""
+              pathname === `${AppRouteEnum.SIGN_UP}` ? s.link__register : ''
             } `}
           >
             Зареєструватись

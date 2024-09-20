@@ -1,9 +1,9 @@
-import { Card } from "../types";
+import { Card } from '../types';
 
-import s from "./cardDetails.module.scss";
-import Link from "next/link";
-import SvgIcon from "@/components/SvgIcon/SvgIcon";
-import { roboto } from "@/utils/fonts";
+import s from './cardDetails.module.scss';
+import Link from 'next/link';
+import SvgIcon from '@/components/UI/SvgIcon/SvgIcon';
+import { roboto } from '@/utils/fonts';
 
 const CardDetails = ({ title, subtitle, description }: Card) => {
   return (

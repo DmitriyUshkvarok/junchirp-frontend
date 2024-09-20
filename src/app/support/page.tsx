@@ -1,4 +1,4 @@
-import Support from "@/components/support/Support";
+import Support from "@/components/Support/Support";
 
 const SupportPage = () => {
   return <Support />;

@@ -1,14 +1,14 @@
-import { Field, Form, Formik } from "formik";
-import { validationSchemaRegister } from "@/components/auth/Register/validationRegister";
-import ToastContainer from "../../ToastContainer/ToastContainer";
-import Button from "../../Button/Button";
-import SvgIcon from "../../SvgIcon/SvgIcon";
-import Loader from "../../Loader/Loader";
-import PasswordStrengthIndicator from "../PasswordStrengthIndicator/PasswordStrengthIndicator";
-import s from "./register.module.scss";
-import useRegisterFormik from "@/hooks/useRegisterFormik";
-import { FormField } from "@/components/common/form-field/form-field";
-import { useState } from "react";
+import { Field, Form, Formik } from 'formik';
+import { validationSchemaRegister } from '@/validation/validationRegister';
+import ToastContainer from '../../UI/ToastContainer/ToastContainer';
+import Button from '../../UI/Button/Button';
+import SvgIcon from '../../UI/SvgIcon/SvgIcon';
+import Loader from '../../UI/Loader/Loader';
+import PasswordStrengthIndicator from '../PasswordStrengthIndicator/PasswordStrengthIndicator';
+import s from './register.module.scss';
+import useRegisterFormik from '@/hooks/useRegisterFormik';
+import { FormField } from '@/components/UI/CustomInput/CustomInput';
+import { useState } from 'react';
 
 const RegisterFormik = () => {
   const {
@@ -28,10 +28,10 @@ const RegisterFormik = () => {
       <ToastContainer />
       <Formik
         initialValues={{
-          userName: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
+          userName: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
           rememberMe: false,
         }}
         onSubmit={handleSubmit}
@@ -47,9 +47,9 @@ const RegisterFormik = () => {
         }) => (
           <Form className={s.form}>
             <FormField
-              name={"userName"}
-              label={"Ім`я"}
-              type={"text"}
+              name={'userName'}
+              label={'Ім`я'}
+              type={'text'}
               touched={touched}
               errors={errors}
               backendError={backendError}
@@ -59,9 +59,9 @@ const RegisterFormik = () => {
               }}
             />
             <FormField
-              name={"email"}
-              label={"Email"}
-              type={"email"}
+              name={'email'}
+              label={'Email'}
+              type={'email'}
               touched={touched}
               errors={errors}
               backendError={backendError}
@@ -71,9 +71,9 @@ const RegisterFormik = () => {
               }}
             />
             <FormField
-              name={"password"}
-              label={"Пароль"}
-              type={"password"}
+              name={'password'}
+              label={'Пароль'}
+              type={'password'}
               touched={touched}
               errors={errors}
               backendError={backendError}
@@ -89,9 +89,9 @@ const RegisterFormik = () => {
             <PasswordStrengthIndicator password={values.password} />
 
             <FormField
-              name={"confirmPassword"}
-              label={"Повторити пароль"}
-              type={"password"}
+              name={'confirmPassword'}
+              label={'Повторити пароль'}
+              type={'password'}
               touched={touched}
               errors={errors}
               backendError={backendError}
@@ -125,16 +125,16 @@ const RegisterFormik = () => {
                 />
                 <label className={`${s.checkboxLabel} `}>
                   <p className={s.text}>
-                    Я погоджуюсь з{" "}
+                    Я погоджуюсь з{' '}
                     <span className={s.text__chip__checkbox}>
-                      {" "}
-                      Умовами використання{" "}
-                    </span>{" "}
-                    та{" "}
+                      {' '}
+                      Умовами використання{' '}
+                    </span>{' '}
+                    та{' '}
                     <span className={s.text__chip__checkbox}>
-                      {" "}
-                      Політикою конфіденційності{" "}
-                    </span>{" "}
+                      {' '}
+                      Політикою конфіденційності{' '}
+                    </span>{' '}
                   </p>
                 </label>
               </div>
@@ -160,19 +160,19 @@ const RegisterFormik = () => {
                   isLoading || isValid
                     ? s.valid
                     : !touched.userName ||
-                      errors.userName ||
-                      !touched.email ||
-                      errors.email ||
-                      !touched.password ||
-                      errors.password ||
-                      !touched.confirmPassword ||
-                      errors.confirmPassword ||
-                      !touched.rememberMe ||
-                      errors.rememberMe
-                    ? " "
-                    : backendError
-                    ? s.invalid
-                    : s.valid
+                        errors.userName ||
+                        !touched.email ||
+                        errors.email ||
+                        !touched.password ||
+                        errors.password ||
+                        !touched.confirmPassword ||
+                        errors.confirmPassword ||
+                        !touched.rememberMe ||
+                        errors.rememberMe
+                      ? ' '
+                      : backendError
+                        ? s.invalid
+                        : s.valid
                 }`}
                 type="submit"
                 isDisabled={!dirty || isLoading}
@@ -183,7 +183,7 @@ const RegisterFormik = () => {
                     <Loader />
                   </>
                 ) : (
-                  "Зареєструватись"
+                  'Зареєструватись'
                 )}
               </Button>
             </div>

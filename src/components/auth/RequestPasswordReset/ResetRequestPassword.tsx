@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRequestPasswordResetMutation } from "@/redux/auth/authApi";
-import useRouterPush from "@/hooks/useRouter";
-import { customError } from "@/utils/types/customError";
-import Loader from "../../Loader/Loader";
+import { useState } from 'react';
+import { useRequestPasswordResetMutation } from '@/redux/auth/authApi';
+import useRouterPush from '@/hooks/useRouter';
+import { customError } from '@/utils/types/customError';
+import Loader from '../../UI/Loader/Loader';
 
-import { Field, Form, Formik } from "formik";
-import SvgIcon from "../../SvgIcon/SvgIcon";
-import ErrorFeedback from "../ErrorFeedback";
-import Button from "../../Button/Button";
-import ToastContainer from "../../ToastContainer/ToastContainer";
-import { validationSchemaRequestPasswordReset } from "./RequestPasswordReset";
-import { FormValuesRequestPasswordReset } from "./FormValuesRequestPasswordReset";
-import s from "./requestPasswordReset.module.scss";
+import { Field, Form, Formik } from 'formik';
+import SvgIcon from '../../UI/SvgIcon/SvgIcon';
+import ErrorFeedback from '../ErrorFeedback';
+import Button from '../../UI/Button/Button';
+import ToastContainer from '../../UI/ToastContainer/ToastContainer';
+import { validationSchemaRequestPasswordReset } from '../../../validation/validationRequestPasswordReset';
+import { FormValuesRequestPasswordReset } from './FormValuesRequestPasswordReset';
+import s from './requestPasswordReset.module.scss';
 
 const ResetRequestPassword = () => {
   const [requestPasswordReset, { isLoading }] =
@@ -35,12 +35,12 @@ const ResetRequestPassword = () => {
 
       if (res) {
         resetForm();
-        pushRouter("/reset_password");
+        pushRouter('/reset_password');
       }
     } catch (error) {
       const err = error as customError;
       const status = err.status;
-      let errorMessage = "Користувача не знайдено";
+      let errorMessage = 'Користувача не знайдено';
       if (status === 404) setBackendError(errorMessage);
     }
   };
@@ -50,7 +50,7 @@ const ResetRequestPassword = () => {
         <ToastContainer />
         <h2 className={s.title}>Відправити запит на зміну паролю ?</h2>
         <Formik
-          initialValues={{ email: "" }}
+          initialValues={{ email: '' }}
           onSubmit={handleSubmit}
           validationSchema={validationSchemaRequestPasswordReset}
         >
@@ -65,7 +65,7 @@ const ResetRequestPassword = () => {
               <div className={s.form__box}>
                 <label
                   className={`${s.label} ${
-                    touched.email && errors.email ? s.invalid : ""
+                    touched.email && errors.email ? s.invalid : ''
                   } `}
                 >
                   Email
@@ -80,8 +80,8 @@ const ResetRequestPassword = () => {
                     (touched.email && errors.email) || backendError
                       ? s.invalid
                       : touched.email && !errors.email
-                      ? s.valid
-                      : ""
+                        ? s.valid
+                        : ''
                   }`}
                   type="email"
                   name="email"
@@ -101,10 +101,10 @@ const ResetRequestPassword = () => {
                  isLoading
                    ? s.styledBtn
                    : !touched.email || errors.email
-                   ? ""
-                   : !touched.email || errors.email || backendError
-                   ? s.invalid
-                   : s.valid
+                     ? ''
+                     : !touched.email || errors.email || backendError
+                       ? s.invalid
+                       : s.valid
                } `}
                 type="submit"
                 isDisabled={!dirty || !isValid || isLoading}
@@ -114,7 +114,7 @@ const ResetRequestPassword = () => {
                     відновити пароль <Loader />
                   </>
                 ) : (
-                  "відновити пароль"
+                  'відновити пароль'
                 )}
               </Button>
             </Form>

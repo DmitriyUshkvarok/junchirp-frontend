@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header/Header';
 import { montserrat } from '@/utils/fonts';
-import ReduxProvider from '@/redux/ReduxProvider/ReduxProvider';
+import ReduxProvider from '@/Providers/ReduxProvider/ReduxProvider';
 import Footer from '@/components/Footer/Footer';
-import { Temporary } from '@/components/temporary/temporary';
+import { Temporary } from '@/components/UI/temporary/temporary';
 import s from '@/sass/layouts/main.module.scss';
 import localFont from 'next/font/local';
 

@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { useRequestPasswordResetMutation } from "@/redux/auth/authApi";
-import useRouterPush from "@/hooks/useRouter";
-import { customError } from "@/utils/types/customError";
+import { useRequestPasswordResetMutation } from '@/redux/auth/authApi';
+import useRouterPush from '@/hooks/useRouter';
+import { customError } from '@/utils/types/customError';
 
-import { Field, Form, Formik } from "formik";
-import { useState } from "react";
-import s from "./styles.module.scss";
-import { FormValuesRequestPasswordReset } from "@/components/auth/RequestPasswordReset/FormValuesRequestPasswordReset";
-import ToastContainer from "@/components/ToastContainer/ToastContainer";
-import SvgIcon from "@/components/SvgIcon/SvgIcon";
-import ErrorFeedback from "@/components/auth/ErrorFeedback";
-import Button from "@/components/Button/Button";
-import { validationSchemaRequestPasswordReset } from "@/components/auth/RequestPasswordReset/RequestPasswordReset";
-import Loader from "@/components/Loader/Loader";
+import { Field, Form, Formik } from 'formik';
+import { useState } from 'react';
+import s from './styles.module.scss';
+import { FormValuesRequestPasswordReset } from '@/components/Auth/RequestPasswordReset/FormValuesRequestPasswordReset';
+import ToastContainer from '@/components/UI/ToastContainer/ToastContainer';
+import SvgIcon from '@/components/UI/SvgIcon/SvgIcon';
+import ErrorFeedback from '@/components/Auth/ErrorFeedback';
+import Button from '@/components/UI/Button/Button';
+import { validationSchemaRequestPasswordReset } from '@/validation/validationRequestPasswordReset';
+import Loader from '@/components/UI/Loader/Loader';
 
 const RequestPasswordResetPage = () => {
   const [requestPasswordReset, { isLoading }] =
@@ -35,12 +35,12 @@ const RequestPasswordResetPage = () => {
 
       if (res) {
         resetForm();
-        pushRouter("/reset_password");
+        pushRouter('/reset_password');
       }
     } catch (error) {
       const err = error as customError;
       const status = err.status;
-      let errorMessage = "Користувача не знайдено";
+      let errorMessage = 'Користувача не знайдено';
       if (status === 404) setBackendError(errorMessage);
     }
   };
@@ -50,7 +50,7 @@ const RequestPasswordResetPage = () => {
         <ToastContainer />
         <h2 className={s.title}>Відправити запит на зміну паролю ?</h2>
         <Formik
-          initialValues={{ email: "" }}
+          initialValues={{ email: '' }}
           onSubmit={handleSubmit}
           validationSchema={validationSchemaRequestPasswordReset}
         >
@@ -65,7 +65,7 @@ const RequestPasswordResetPage = () => {
               <div className={s.form__box}>
                 <label
                   className={`${s.label} ${
-                    touched.email && errors.email ? s.invalid : ""
+                    touched.email && errors.email ? s.invalid : ''
                   } `}
                 >
                   Email
@@ -80,8 +80,8 @@ const RequestPasswordResetPage = () => {
                     (touched.email && errors.email) || backendError
                       ? s.invalid
                       : touched.email && !errors.email
-                      ? s.valid
-                      : ""
+                        ? s.valid
+                        : ''
                   }`}
                   type="email"
                   name="email"
@@ -101,10 +101,10 @@ const RequestPasswordResetPage = () => {
                  isLoading
                    ? s.styledBtn
                    : !touched.email || errors.email
-                   ? ""
-                   : !touched.email || errors.email || backendError
-                   ? s.invalid
-                   : s.valid
+                     ? ''
+                     : !touched.email || errors.email || backendError
+                       ? s.invalid
+                       : s.valid
                } `}
                 type="submit"
                 isDisabled={!dirty || !isValid || isLoading}
@@ -114,7 +114,7 @@ const RequestPasswordResetPage = () => {
                     відновити пароль <Loader />
                   </>
                 ) : (
-                  "відновити пароль"
+                  'відновити пароль'
                 )}
               </Button>
             </Form>

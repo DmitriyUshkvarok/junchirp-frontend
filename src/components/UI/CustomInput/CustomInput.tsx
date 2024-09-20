@@ -1,7 +1,7 @@
-import s from "./styles.module.scss";
-import { Field, FormikErrors, FormikTouched } from "formik";
-import ErrorFeedback from "@/components/auth/ErrorFeedback";
-import SvgIcon from "@/components/SvgIcon/SvgIcon";
+import s from './styles.module.scss';
+import { Field, FormikErrors, FormikTouched } from 'formik';
+import ErrorFeedback from '@/components/Auth/ErrorFeedback';
+import SvgIcon from '@/components/UI/SvgIcon/SvgIcon';
 
 type FormFieldProps<T extends object> = {
   name: keyof T;
@@ -34,7 +34,7 @@ const FormField = <T extends object>(props: FormFieldProps<T>) => {
     <div className={s.form__box}>
       <label
         className={`${s.label} ${
-          touched[name] && errors[name] ? s.invalid : ""
+          touched[name] && errors[name] ? s.invalid : ''
         }`}
       >
         {label}
@@ -45,10 +45,10 @@ const FormField = <T extends object>(props: FormFieldProps<T>) => {
           (touched[name] && errors[name]) || backendError
             ? s.invalid
             : touched[name] && !errors[name]
-            ? s.valid
-            : ""
+              ? s.valid
+              : ''
         }`}
-        type={showPassword === true ? "text" : type}
+        type={showPassword === true ? 'text' : type}
         name={name as string}
         onChange={onChange}
       />
@@ -57,7 +57,7 @@ const FormField = <T extends object>(props: FormFieldProps<T>) => {
       ) : null}
       {isThisPassword && (
         <SvgIcon
-          id={showPassword ? "eye-close" : "eye"}
+          id={showPassword ? 'eye-close' : 'eye'}
           width={40}
           height={40}
           className={s.chip__eye}

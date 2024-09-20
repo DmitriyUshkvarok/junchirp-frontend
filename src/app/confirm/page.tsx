@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from 'formik';
 
-import styles from "./styles.module.scss";
-import useEmailConfirmation from "@/hooks/useEmailConfirmation";
-import useCodeInput from "@/hooks/useCodeInput";
-import ToastContainer from "@/components/ToastContainer/ToastContainer";
-import Button from "@/components/Button/Button";
-import Loader from "@/components/Loader/Loader";
-import { validationSchemaConfirm } from "./validation-schema-confirm";
+import styles from './styles.module.scss';
+import useEmailConfirmation from '@/hooks/useEmailConfirmation';
+import useCodeInput from '@/hooks/useCodeInput';
+import ToastContainer from '@/components/UI/ToastContainer/ToastContainer';
+import Button from '@/components/UI/Button/Button';
+import Loader from '@/components/UI/Loader/Loader';
+import { validationSchemaConfirm } from './validation-schema-confirm';
 
 const ConfirPage = () => {
   const {
@@ -33,8 +33,8 @@ const ConfirPage = () => {
         <ToastContainer />
         <h2 className={styles.title}>Підтвердження електронної пошти</h2>
         <p className={styles.text}>
-          Введіть 6 значний код, який ми надіслали на Вашу електронну пошту{" "}
-          <span className={styles.email__text}> {email} </span>{" "}
+          Введіть 6 значний код, який ми надіслали на Вашу електронну пошту{' '}
+          <span className={styles.email__text}> {email} </span>{' '}
         </p>
         <p className={styles.timer}>
           {cooldown !== null
@@ -44,7 +44,7 @@ const ConfirPage = () => {
             : `Код активний ще ${formatTime(timeLeft)}.`}
         </p>
         <Formik
-          initialValues={{ code: "" }}
+          initialValues={{ code: '' }}
           onSubmit={handleSubmit}
           validationSchema={validationSchemaConfirm}
         >
@@ -70,11 +70,11 @@ const ConfirPage = () => {
                       (touched.code && errors.code) || backendError
                         ? styles.invalid
                         : touched.code && !errors.code
-                        ? styles.valid
-                        : ""
+                          ? styles.valid
+                          : ''
                     }`}
                     maxLength="1"
-                    value={values.code[index] || ""}
+                    value={values.code[index] || ''}
                     innerRef={(ref: HTMLInputElement) =>
                       (inputRefs.current[index] = ref)
                     }
@@ -99,10 +99,10 @@ const ConfirPage = () => {
                   (touched.code && errors.code) || backendError
                     ? styles.invalid
                     : touched.code && !errors.code
-                    ? styles.valid
-                    : ""
+                      ? styles.valid
+                      : ''
                 }
-              ${backendError ? styles.invalid__backendError : ""}`}
+              ${backendError ? styles.invalid__backendError : ''}`}
                 type="submit"
                 isDisabled={isLoading || !dirty}
               >
@@ -112,7 +112,7 @@ const ConfirPage = () => {
                     <Loader />
                   </>
                 ) : (
-                  "Підтвердити"
+                  'Підтвердити'
                 )}
               </Button>
             </Form>
@@ -122,7 +122,7 @@ const ConfirPage = () => {
           title="Надіслати код повторно"
           onClick={() => email && handleResendCode(email)}
           className={`${styles.btn__resend} ${
-            cooldown !== null ? styles.disabled : ""
+            cooldown !== null ? styles.disabled : ''
           }`}
           isDisabled={cooldown !== null || isLoading}
         />

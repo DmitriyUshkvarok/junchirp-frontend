@@ -1,5 +1,5 @@
-import SvgIcon from "../SvgIcon/SvgIcon";
-import s from "../auth/SignIn/signIn.module.scss";
+import SvgIcon from '../SvgIcon/SvgIcon';
+import s from '../auth/SignIn/signIn.module.scss';
 
 const SocialLoginGroup = () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;

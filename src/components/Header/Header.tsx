@@ -1,18 +1,18 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import authSelector from "@/redux/auth/authSelector";
-import { useDispatch, useSelector } from "react-redux";
-import { useLogoutMutation } from "@/redux/auth/authApi";
-import Logo from "../Logo/Logo";
-import BurgerButton from "../BurgerButton/BurgerButton";
-import SvgIcon from "../SvgIcon/SvgIcon";
-import useRouterPush from "@/hooks/useRouter";
-import s from "./header.module.scss";
-import { AppRouteEnum } from "@/libs/enums/enums";
-import { useEffect, useState } from "react";
-import useWindowWidth from "@/hooks/useWindowWidth";
-import { clearToken } from "@/redux/auth/authSlice";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import authSelector from '@/redux/auth/authSelector';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLogoutMutation } from '@/redux/auth/authApi';
+import Logo from '../Logo/Logo';
+import BurgerButton from '../UI/BurgerButton/BurgerButton';
+import SvgIcon from '../UI/SvgIcon/SvgIcon';
+import useRouterPush from '@/hooks/useRouter';
+import s from './header.module.scss';
+import { AppRouteEnum } from '@/libs/enums/enums';
+import { useEffect, useState } from 'react';
+import useWindowWidth from '@/hooks/useWindowWidth';
+import { clearToken } from '@/redux/auth/authSlice';
 
 const Header = () => {
   const pathname = usePathname();
@@ -25,13 +25,13 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      console.log("logout");
+      console.log('logout');
 
       await logout({}).unwrap();
       dispatch(clearToken());
       pushRouter(AppRouteEnum.ROOT);
     } catch (err) {
-      console.error("Failed to logout:", err);
+      console.error('Failed to logout:', err);
     }
   };
 
@@ -39,15 +39,15 @@ const Header = () => {
 
   useEffect(() => {
     if (menuOpen && windowWidth !== undefined && windowWidth < 1280) {
-      document.body.classList.add("body-no-scroll");
-      document.documentElement.classList.add("body-no-scroll");
+      document.body.classList.add('body-no-scroll');
+      document.documentElement.classList.add('body-no-scroll');
     } else {
-      document.body.classList.remove("body-no-scroll");
-      document.documentElement.classList.remove("body-no-scroll");
+      document.body.classList.remove('body-no-scroll');
+      document.documentElement.classList.remove('body-no-scroll');
     }
     return () => {
-      document.body.classList.remove("body-no-scroll");
-      document.documentElement.classList.remove("body-no-scroll");
+      document.body.classList.remove('body-no-scroll');
+      document.documentElement.classList.remove('body-no-scroll');
     };
   }, [menuOpen, windowWidth]);
 
@@ -84,7 +84,7 @@ const Header = () => {
                       : AppRouteEnum.SIGN_IN
                   }
                 >
-                  {token ? "Мій кабінет" : "Зареєструватись / Увійти"}
+                  {token ? 'Мій кабінет' : 'Зареєструватись / Увійти'}
                 </Link>
                 <BurgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
                 {token && (
@@ -105,16 +105,16 @@ const Header = () => {
             )}
         </div>
       </div>
-      <div className={`${s.menu_burger} ${menuOpen ? s.open : ""}`}>
+      <div className={`${s.menu_burger} ${menuOpen ? s.open : ''}`}>
         <ul className={s.nav_burger}>
           <li>
-            {" "}
+            {' '}
             <Link href="about" onClick={() => setMenuOpen(false)}>
               Про нас
             </Link>
           </li>
           <li>
-            {" "}
+            {' '}
             <Link href="terms-of-service" onClick={() => setMenuOpen(false)}>
               Умови використання
             </Link>
@@ -136,7 +136,7 @@ const Header = () => {
           }
           onClick={() => setMenuOpen(false)}
         >
-          {token ? "Мій кабінет" : "Зареєструватись / Увійти"}
+          {token ? 'Мій кабінет' : 'Зареєструватись / Увійти'}
         </Link>
       </div>
     </header>

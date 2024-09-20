@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 // import required modules
-import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
+import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
-import "swiper/css/scrollbar";
+import 'swiper/css/scrollbar';
 
-import s from "./testimonials.module.scss";
-import Image from "next/image";
-import SvgIcon from "@/components/SvgIcon/SvgIcon";
+import s from './testimonials.module.scss';
+import Image from 'next/image';
+import SvgIcon from '@/components/UI/SvgIcon/SvgIcon';
 
-import testimonials from "./testimonials.json";
+import testimonials from './testimonials.json';
 
 interface Testimonial {
   id: number;
@@ -60,10 +60,10 @@ const Testimonials = () => {
         <div className={s.swiper__box}>
           <Swiper
             navigation={{
-              nextEl: ".swiper__button__next",
-              prevEl: ".swiper__button__prev",
+              nextEl: '.swiper__button__next',
+              prevEl: '.swiper__button__prev',
             }}
-            effect={"coverflow"}
+            effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
             loop={true}
@@ -77,7 +77,7 @@ const Testimonials = () => {
             pagination={{ clickable: true }}
             modules={[EffectCoverflow, Pagination, Navigation]}
             className="mySwiper"
-            slidesPerView={"auto"}
+            slidesPerView={'auto'}
             spaceBetween={30}
             breakpoints={generateBreakpoints()}
           >
