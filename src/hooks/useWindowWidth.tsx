@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+'use client';
+import { useState, useEffect } from 'react';
 
 const useWindowWidth = (): number | undefined => {
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
@@ -8,11 +9,11 @@ const useWindowWidth = (): number | undefined => {
       setWindowWidth(window.innerWidth);
     };
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
 
       return () => {
-        window.removeEventListener("resize", handleResize);
+        window.removeEventListener('resize', handleResize);
       };
     }
   }, []);

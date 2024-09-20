@@ -1,4 +1,9 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import {
+  Action,
+  combineReducers,
+  configureStore,
+  ThunkAction,
+} from '@reduxjs/toolkit';
 
 import storage from 'redux-persist/lib/storage';
 
@@ -14,7 +19,7 @@ import {
 } from 'redux-persist';
 
 import persisteAuthReducer from './auth/authSlice';
-import mainApi from './mainApi';
+import mainApi from '@/services/services-config/servicesCofig';
 
 const persistConfig = {
   key: 'root',
@@ -41,10 +46,8 @@ const store = configureStore({
 
 export const persistor = persistStore(store);
 
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;
+
 export default store;
-
-export type AppStore = typeof store;
-
-export type RootState = ReturnType<AppStore['getState']>;
-
-export type AppDispatch = AppStore['dispatch'];

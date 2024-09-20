@@ -1,8 +1,9 @@
+'use client';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { useRegisterMutation } from '@/redux/auth/authApi';
+import { useRegisterMutation } from '@/services/auth-and-user-services';
 import useRouterPush from '@/hooks/useRouter';
-import { FormValuesRegister } from '@/components/Auth/Register/FormValuesRegister';
+import { FormValuesRegister } from '@/components/Auth/Register/types/types';
 import { customError } from '@/utils/types/customError';
 
 const useRegisterFormik = () => {

@@ -1,13 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
-import { authApi } from "./authApi";
-import { IAuthState } from "@/utils/types/IUser";
+import { createSlice } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
+import { authApi } from '@/services/auth-and-user-services';
+import { IAuthState } from '@/utils/types/IUser';
 
 const authPersistConfig = {
-  key: "auth",
+  key: 'auth',
   storage,
-  whitelist: ["accessToken", "user"],
+  whitelist: ['accessToken', 'user'],
 };
 
 const initialState: IAuthState = {
@@ -16,14 +16,14 @@ const initialState: IAuthState = {
     email: null,
     id: null,
     isConfirmed: false,
-    accessToken: "",
+    accessToken: '',
     photo: null,
     role: null,
   },
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     clearToken: () => {

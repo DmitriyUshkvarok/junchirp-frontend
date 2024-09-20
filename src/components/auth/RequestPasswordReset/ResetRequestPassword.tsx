@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRequestPasswordResetMutation } from '@/redux/auth/authApi';
+import { useRequestPasswordResetMutation } from '@/services/auth-and-user-services';
 import useRouterPush from '@/hooks/useRouter';
 import { customError } from '@/utils/types/customError';
 import Loader from '../../UI/Loader/Loader';

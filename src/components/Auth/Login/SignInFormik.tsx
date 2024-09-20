@@ -1,14 +1,10 @@
 import { Form, Formik } from 'formik';
-
-import useSignInFormik from '@/hooks/useSignInFormik';
-
+import { FormField } from '@/components/UI/CustomInput/CustomInput';
 import { validationSchemaSignIn } from '../../../validation/validationSignIn';
-
 import s from './signIn.module.scss';
-import ToastContainer from '@/components/UI/ToastContainer/ToastContainer';
 import Button from '@/components/UI/Button/Button';
 import Loader from '@/components/UI/Loader/Loader';
-import { FormField } from '@/components/UI/CustomInput/CustomInput';
+import useSignInFormik from '@/hooks/useSignInFormik';
 
 const SignInFormik = () => {
   const {
@@ -22,7 +18,6 @@ const SignInFormik = () => {
 
   return (
     <>
-      <ToastContainer />
       <Formik
         initialValues={{ email: '', password: '', rememberMe: false }}
         onSubmit={handleSubmit}

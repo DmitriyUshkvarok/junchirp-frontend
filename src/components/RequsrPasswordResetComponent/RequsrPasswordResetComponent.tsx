@@ -1,21 +1,21 @@
 'use client';
 
-import { useState } from 'react';
-import { useRequestPasswordResetMutation } from '@/services/auth-and-user-services';
+import { useRequestPasswordResetMutation } from '@/services/auth-and-user-services'; 
 import useRouterPush from '@/hooks/useRouter';
 import { customError } from '@/utils/types/customError';
-import Loader from '../../UI/Loader/Loader';
 
 import { Field, Form, Formik } from 'formik';
-import SvgIcon from '../../UI/SvgIcon/SvgIcon';
-import ErrorFeedback from '../ErrorFeedback';
-import Button from '../../UI/Button/Button';
-import ToastContainer from '../../UI/ToastContainer/ToastContainer';
-import { validationSchemaRequestPasswordReset } from '../../../validation/validationRequestPasswordReset';
-import { FormValuesRequestPasswordReset } from './FormValuesRequestPasswordReset';
-import s from './requestPasswordReset.module.scss';
+import { useState } from 'react';
+import s from './styles.module.scss';
+import { FormValuesRequestPasswordReset } from '@/components/Auth/RequestPasswordReset/FormValuesRequestPasswordReset';
+import ToastContainer from '@/components/UI/ToastContainer/ToastContainer';
+import SvgIcon from '@/components/UI/SvgIcon/SvgIcon';
+import ErrorFeedback from '@/components/Auth/ErrorFeedback';
+import Button from '@/components/UI/Button/Button';
+import { validationSchemaRequestPasswordReset } from '@/validation/validationRequestPasswordReset';
+import Loader from '@/components/UI/Loader/Loader';
 
-const ResetRequestPassword = () => {
+const RequestPasswordResetComponent = () => {
   const [requestPasswordReset, { isLoading }] =
     useRequestPasswordResetMutation();
   const { pushRouter } = useRouterPush();
@@ -124,5 +124,4 @@ const ResetRequestPassword = () => {
     </section>
   );
 };
-
-export default ResetRequestPassword;
+export default RequestPasswordResetComponent;

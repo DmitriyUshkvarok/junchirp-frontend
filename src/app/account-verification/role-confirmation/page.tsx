@@ -1,5 +1,3 @@
-'use client';
-
 import { RoleConfirmation } from '@/components/Role-confirmation/roleConfirmation';
 
 const RoleConfirmationPage = () => {

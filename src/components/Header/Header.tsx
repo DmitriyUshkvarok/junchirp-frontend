@@ -2,8 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import authSelector from '@/redux/auth/authSelector';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLogoutMutation } from '@/redux/auth/authApi';
+import { useLogoutMutation } from '@/services/auth-and-user-services';
 import Logo from '../UI/Logo/Logo';
 import BurgerButton from '../UI/BurgerButton/BurgerButton';
 import SvgIcon from '../UI/SvgIcon/SvgIcon';
@@ -13,23 +12,24 @@ import { AppRouteEnum } from '@/libs/enums/enums';
 import { useEffect, useState } from 'react';
 import useWindowWidth from '@/hooks/useWindowWidth';
 import { clearToken } from '@/redux/auth/authSlice';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux-hook';
 
 const Header = () => {
   const pathname = usePathname();
-  const token = useSelector(authSelector.selectToken);
-  const isConfirmed = useSelector(authSelector.selectIsConfirmed);
+  const token = useAppSelector(authSelector.selectToken);
+  const isConfirmed = useAppSelector(authSelector.selectIsConfirmed);
   const [logout] = useLogoutMutation();
   const { pushRouter } = useRouterPush();
   const windowWidth = useWindowWidth();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleLogout = async () => {
     try {
-      console.log('logout');
-
-      await logout({}).unwrap();
-      dispatch(clearToken());
-      pushRouter(AppRouteEnum.ROOT);
+      const res = await logout({}).unwrap();
+      if (res) {
+        dispatch(clearToken());
+        pushRouter(AppRouteEnum.ROOT);
+      }
     } catch (err) {
       console.error('Failed to logout:', err);
     }

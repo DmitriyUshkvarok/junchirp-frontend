@@ -2,11 +2,18 @@ import type { Metadata } from 'next';
 import './globals.scss';
 import Header from '@/components/Header/Header';
 import { montserrat } from '@/utils/fonts';
-import ReduxProvider from '@/Providers/ReduxProvider/ReduxProvider';
 import Footer from '@/components/Footer/Footer';
 import { Temporary } from '@/components/UI/temporary/temporary';
 import s from '@/sass/layouts/main.module.scss';
 import localFont from 'next/font/local';
+import dynamic from 'next/dynamic';
+
+const ReduxProvider = dynamic(
+  () => import('../Providers/ReduxProvider/ReduxProvider'),
+  {
+    ssr: false,
+  }
+);
 
 const angryFont = localFont({
   src: '../../public/fonts/Angry.otf',

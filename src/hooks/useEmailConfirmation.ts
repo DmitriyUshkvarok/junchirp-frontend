@@ -1,21 +1,22 @@
+'use client';
 import { useEffect, useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { customError } from '@/utils/types/customError';
+import { FormikValues } from 'formik';
+import { AppRouteEnum } from '@/libs/enums/enums';
+import { useAppSelector } from './redux-hook';
 import {
   useConfirmEmailMutation,
   useResendConfirmationCodeMutation,
-} from '@/redux/auth/authApi';
+} from '../services/auth-and-user-services';
 import authSelector from '@/redux/auth/authSelector';
-import { customError } from '@/utils/types/customError';
-import { FormikValues } from 'formik';
 import useRouterPush from './useRouter';
-import { AppRouteEnum } from '@/libs/enums/enums';
 
 const useEmailConfirmation = () => {
   const [confirm, { isLoading }] = useConfirmEmailMutation();
   const [resendCode] = useResendConfirmationCodeMutation();
   const { pushRouter } = useRouterPush();
-  const emailSelector = useSelector(authSelector.getEmail);
+  const emailSelector = useAppSelector(authSelector.getEmail);
   const [email, setEmail] = useState<string | null>(emailSelector || '');
 
   const storedTimeLeft = parseInt(

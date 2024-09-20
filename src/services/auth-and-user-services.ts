@@ -1,69 +1,70 @@
-import mainApi from "../mainApi";
+import mainApi from './services-config/servicesCofig';
+
 export const authApi = mainApi.injectEndpoints({
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (userData) => ({
-        url: "auth/register",
-        method: "POST",
+        url: 'auth/register',
+        method: 'POST',
         body: userData,
       }),
-      invalidatesTags: ["auth"],
+      invalidatesTags: ['auth'],
     }),
     confirmEmail: builder.mutation({
       query: (data) => ({
-        url: "users/confirm",
-        method: "POST",
+        url: 'users/confirm',
+        method: 'POST',
         body: data,
       }),
-      invalidatesTags: ["auth"],
+      invalidatesTags: ['auth'],
     }),
     login: builder.mutation({
       query: (credentials) => ({
-        url: "auth/login",
-        method: "POST",
+        url: 'auth/login',
+        method: 'POST',
         body: credentials,
       }),
-      invalidatesTags: ["auth"],
+      invalidatesTags: ['auth'],
     }),
     resendConfirmationCode: builder.mutation({
       query: ({ email }) => ({
-        url: "users/resend-confirmation-code",
-        method: "POST",
+        url: 'users/resend-confirmation-code',
+        method: 'POST',
         body: { email },
       }),
-      invalidatesTags: ["auth"],
+      invalidatesTags: ['auth'],
     }),
     logout: builder.mutation({
       query: () => ({
-        url: "auth/logout",
-        method: "DELETE",
+        url: 'auth/logout',
+        method: 'DELETE',
       }),
 
-      invalidatesTags: ["auth"],
+      invalidatesTags: ['auth'],
     }),
     requestPasswordReset: builder.mutation({
       query: ({ email }) => ({
-        url: "request-password-reset",
-        method: "POST",
+        url: 'request-password-reset',
+        method: 'POST',
         body: { email },
       }),
-      invalidatesTags: ["auth"],
+      invalidatesTags: ['auth'],
     }),
     resetPassword: builder.mutation({
       query: ({ email, code, newPassword }) => ({
-        url: "reset-password",
-        method: "POST",
+        url: 'reset-password',
+        method: 'POST',
         body: { email, code, newPassword },
       }),
-      invalidatesTags: ["auth"],
+      invalidatesTags: ['auth'],
     }),
     setRole: builder.mutation({
       query: (role) => ({
-        url: "users/confirm-role",
-        method: "PATCH",
+        url: 'users/confirm-role',
+        method: 'PATCH',
         body: role,
       }),
-      invalidatesTags: ["auth"],
+      invalidatesTags: ['auth'],
     }),
   }),
 });

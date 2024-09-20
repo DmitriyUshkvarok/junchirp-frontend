@@ -1,19 +1,20 @@
-import { useMemo } from "react";
+'use client';
+import { useMemo } from 'react';
 
 interface UsePasswordStrengthProps {
   password: string;
 }
 
 const STRENGTH_LEVELS = [
-  { level: "Very Weak", color: "#B3261E", score: 1, gradient: "20%" },
-  { level: "Weak", color: "#F57C00", score: 2, gradient: "40%" },
-  { level: "Medium", color: "#F5D251", score: 3, gradient: "60%" },
-  { level: "Strong", color: "#388E3C", score: 4, gradient: "80%" },
-  { level: "Very Strong", color: "#228B22", score: 5, gradient: "100%" },
-  { level: "", color: "gray", score: 0, gradient: "0" },
+  { level: 'Very Weak', color: '#B3261E', score: 1, gradient: '20%' },
+  { level: 'Weak', color: '#F57C00', score: 2, gradient: '40%' },
+  { level: 'Medium', color: '#F5D251', score: 3, gradient: '60%' },
+  { level: 'Strong', color: '#388E3C', score: 4, gradient: '80%' },
+  { level: 'Very Strong', color: '#228B22', score: 5, gradient: '100%' },
+  { level: '', color: 'gray', score: 0, gradient: '0' },
 ];
 
-const commonPasswords = ["123456", "password", "qwerty"];
+const commonPasswords = ['123456', 'password', 'qwerty'];
 
 const calculateStrengthScore = (password: string): number => {
   if (!password || commonPasswords.includes(password) || password.length === 0)
@@ -42,7 +43,7 @@ const usePasswordStrength = ({ password }: UsePasswordStrengthProps) => {
     strength: strength.level,
     barStyle: {
       background: `linear-gradient(to right, ${strength.color} ${strength.gradient}, #616161 ${strength.gradient})`,
-      width: "100%",
+      width: '100%',
     },
     color: strength.color,
   };

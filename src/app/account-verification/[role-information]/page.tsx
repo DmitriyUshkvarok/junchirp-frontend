@@ -1,15 +1,13 @@
-"use client";
-
-import { getRoleForm } from "@/libs/enums/helpers/getRoleForm";
-import { RoleType } from "@/utils/types/Role";
+import { getRoleForm } from '@/libs/enums/helpers/getRoleForm';
+import { RoleType } from '@/utils/types/Role';
 
 const RoleInformationPage = ({
   params,
 }: {
-  params: { "role-information": RoleType };
+  params: { 'role-information': RoleType };
 }) => {
-  const role = params["role-information"];
-  
+  const role = params['role-information'];
+
   return <section>{getRoleForm(role)}</section>;
 };
 

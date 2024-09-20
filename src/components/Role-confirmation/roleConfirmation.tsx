@@ -1,3 +1,4 @@
+'use client';
 import s from './roleConfirmation.module.scss';
 import { RoleList } from './roleList';
 import { roleCardData } from './roleCardText';
@@ -6,7 +7,7 @@ import { Form, Formik } from 'formik';
 import { rolesValidationSchema } from '../../validation/rolesValidation';
 import { useRouter } from 'next/navigation';
 import { AppRouteEnum } from '@/libs/enums/enums';
-import { useSetRoleMutation } from '@/redux/auth/authApi';
+import { useSetRoleMutation } from '@/services/auth-and-user-services';
 import { customError } from '@/utils/types/customError';
 import { useState } from 'react';
 import cn from 'classnames';

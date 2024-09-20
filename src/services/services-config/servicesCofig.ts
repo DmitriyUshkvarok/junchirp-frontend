@@ -5,13 +5,11 @@ import {
   FetchArgs,
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/query/react';
-import store from './store';
-import { clearToken, tokenReceived } from './auth/authSlice';
+import store from '../../redux/store';
+import { clearToken, tokenReceived } from '../../redux/auth/authSlice';
 
 type RootState = ReturnType<typeof store.getState>;
 
-// const baseUrl = "/api"; // локально працювати з CORS
-// const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 const baseUrl =
@@ -55,7 +53,7 @@ const baseQueryWithReauth: BaseQueryFn<
         credentials: 'include', // отправляем куки с рефреш токеном
       },
       api,
-      extraOptions,
+      extraOptions
     );
 
     if (refreshResult.data) {
