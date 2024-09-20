@@ -1,4 +1,4 @@
-import { RoleConfirmationHeader } from '@/components/Role-confirmation/roleConfirmationHeader';
+import { AccountVerificationHeader } from "@/components/Role-confirmation/AccountVerificationHeader";
 export default function RoleLayout({
   children,
 }: Readonly<{
@@ -6,7 +6,7 @@ export default function RoleLayout({
 }>) {
   return (
     <div>
-      <RoleConfirmationHeader />
+      <AccountVerificationHeader />
       {children}
     </div>
   );
