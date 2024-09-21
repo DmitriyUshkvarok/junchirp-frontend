@@ -17,7 +17,6 @@ const SignInFormik = () => {
   } = useSignInFormik();
 
   return (
-    <>
       <Formik
         initialValues={{ email: '', password: '', rememberMe: false }}
         onSubmit={handleSubmit}
@@ -96,7 +95,6 @@ const SignInFormik = () => {
           </Form>
         )}
       </Formik>
-    </>
   );
 };
 export default SignInFormik;

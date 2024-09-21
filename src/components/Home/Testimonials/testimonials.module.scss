@@ -1,5 +1,5 @@
-@import "../../../sass/utils/container";
-@import "../../../sass/utils/mixins";
+@import '../../../sass/utils/container';
+@import '../../../sass/utils/mixins';
 
 .section__testimonials {
   padding: 40px 0;
@@ -163,13 +163,13 @@
 .container__slide {
   position: relative;
 
-  .swiper__button__prev,
   .swiper__button__next {
     cursor: pointer;
   }
 
   .swiper__button__prev {
     margin-right: 20px;
+    cursor: pointer;
   }
 }
 
