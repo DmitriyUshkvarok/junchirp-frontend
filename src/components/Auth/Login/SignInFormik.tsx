@@ -5,6 +5,8 @@ import s from './signIn.module.scss';
 import Button from '@/components/UI/Button/Button';
 import Loader from '@/components/UI/Loader/Loader';
 import useSignInFormik from '@/hooks/useSignInFormik';
+import { CustomError } from '@/utils/types/customError';
+import Error from '@/app/sign-in/error';
 
 const SignInFormik = () => {
   const {
@@ -14,9 +16,21 @@ const SignInFormik = () => {
     showPassword,
     backendError,
     handleChange,
+    error,
+    isError,
   } = useSignInFormik();
 
   return (
+    <>
+      {isError && error && (
+        <Error
+          error={{
+            status: (error as CustomError).status,
+            data: (error as CustomError).data,
+          }}
+          reset={() => window.location.reload()}
+        />
+      )}
       <Formik
         initialValues={{ email: '', password: '', rememberMe: false }}
         onSubmit={handleSubmit}
@@ -95,6 +109,7 @@ const SignInFormik = () => {
           </Form>
         )}
       </Formik>
+    </>
   );
 };
 export default SignInFormik;

@@ -6,7 +6,7 @@ import { customError } from '@/utils/types/customError';
 import { FormValuesSignIn } from '@/components/Auth/Login/FormValuesSignIn';
 
 const useSignInFormik = () => {
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, isError, error }] = useLoginMutation();
   const { pushRouter } = useRouterPush();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -59,6 +59,8 @@ const useSignInFormik = () => {
     showPassword,
     backendError,
     handleChange,
+    isError,
+    error,
   };
 };
 

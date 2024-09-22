@@ -7,7 +7,8 @@ import { FormValuesRegister } from '@/components/Auth/Register/types/types';
 import { customError } from '@/utils/types/customError';
 
 const useRegisterFormik = () => {
-  const [register, { isLoading, isSuccess }] = useRegisterMutation();
+  const [register, { isLoading, isSuccess, error, isError }] =
+    useRegisterMutation();
   const { pushRouter } = useRouterPush();
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -79,6 +80,8 @@ const useRegisterFormik = () => {
     isLoading,
     backendError,
     handleChange,
+    isError,
+    error,
   };
 };
 

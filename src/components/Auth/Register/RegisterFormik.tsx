@@ -9,6 +9,8 @@ import s from './register.module.scss';
 import useRegisterFormik from '@/hooks/useRegisterFormik';
 import { FormField } from '@/components/UI/CustomInput/CustomInput';
 import { useState } from 'react';
+import Error from '@/app/register/error';
+import { CustomError, customError } from '@/utils/types/customError';
 
 const RegisterFormik = () => {
   const {
@@ -18,6 +20,8 @@ const RegisterFormik = () => {
     isLoading,
     backendError,
     handleChange,
+    isError,
+    error,
   } = useRegisterFormik();
 
   const [showConfirmPassword, setShowConfirmPassword] =
@@ -26,6 +30,15 @@ const RegisterFormik = () => {
   return (
     <>
       <ToastContainer />
+      {isError && error && (
+        <Error
+          error={{
+            status: (error as CustomError).status,
+            data: (error as CustomError).data,
+          }}
+          reset={() => window.location.reload()}
+        />
+      )}
       <Formik
         initialValues={{
           userName: '',
