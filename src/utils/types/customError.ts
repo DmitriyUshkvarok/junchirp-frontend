@@ -6,11 +6,6 @@ export interface customError {
 export interface CustomError {
   status: number;
   data: {
-    ip: string;
     message: string;
-    method: string;
-    path: string;
-    statusCode: number;
-    timestamp: string;
   };
 }
