@@ -13,7 +13,7 @@ import Button from '../../UI/Button/Button';
 import ToastContainer from '../../UI/ToastContainer/ToastContainer';
 import { validationSchemaRequestPasswordReset } from '../../../validation/validationRequestPasswordReset';
 import { FormValuesRequestPasswordReset } from './FormValuesRequestPasswordReset';
-import s from './requestPasswordReset.module.scss';
+import s from './styles.module.scss';
 
 const ResetRequestPassword = () => {
   const [requestPasswordReset, { isLoading }] =

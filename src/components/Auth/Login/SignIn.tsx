@@ -37,7 +37,7 @@ const SignIn = () => {
           <p className={s.text}>Увійти за допомогою</p>
           <SocialLoginGroup />
           <Link
-            href="/request_password_reset"
+            href={AppRouteEnum.REQUEST_PASSWORD_RESET}
             className={s.link__forgot__password}
           >
             Забули пароль?
