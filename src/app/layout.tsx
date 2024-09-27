@@ -9,7 +9,7 @@ import localFont from 'next/font/local';
 import dynamic from 'next/dynamic';
 
 const ReduxProvider = dynamic(
-  () => import('../Providers/ReduxProvider/ReduxProvider'),
+  () => import('../context/ReduxProvider/ReduxProvider'),
   {
     ssr: false,
   }
