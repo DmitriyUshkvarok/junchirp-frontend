@@ -6,7 +6,7 @@ import Button from '@/components/UI/Button/Button';
 import Loader from '@/components/UI/Loader/Loader';
 import useSignInFormik from '@/hooks/useSignInFormik';
 import { CustomError } from '@/utils/types/customError';
-import Error from '@/app/sign-in/error';
+import Error from '@/app/error';
 
 const SignInFormik = () => {
   const {

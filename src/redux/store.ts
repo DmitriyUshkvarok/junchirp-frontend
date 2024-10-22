@@ -19,6 +19,7 @@ import {
 } from 'redux-persist';
 
 import persisteAuthReducer from './auth/authSlice';
+import persisteLocationReducer from './locationSlice';
 import mainApi from '@/services/services-config/servicesCofig';
 
 const persistConfig = {
@@ -29,6 +30,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   auth: persisteAuthReducer,
+  location: persisteLocationReducer,
   [mainApi.reducerPath]: mainApi.reducer,
 });
 

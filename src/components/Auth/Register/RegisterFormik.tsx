@@ -9,8 +9,8 @@ import s from './register.module.scss';
 import useRegisterFormik from '@/hooks/useRegisterFormik';
 import { FormField } from '@/components/UI/CustomInput/CustomInput';
 import { useState } from 'react';
-import Error from '@/app/register/error';
-import { CustomError, customError } from '@/utils/types/customError';
+import Error from '@/app/error';
+import { CustomError} from '@/utils/types/customError';
 
 const RegisterFormik = () => {
   const {
